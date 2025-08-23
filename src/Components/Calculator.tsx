@@ -35,13 +35,11 @@ export const Calculator: React.FunctionComponent = () => {
 
 export const CalculatorView: React.FunctionComponent<{ controller: AmortizationCalculator, refresh: Refresh }> = ({ controller, refresh }) => {
   return controller && (<>
-    {/* // <Container> */}
       <Typography variant="h2">Amortization Calculator</Typography>
       <Refinance controller={controller} refresh={refresh} />
       <Graph controller={controller} />
       <Summary summary={controller.getSummary()} />
       <BreakDown controller={controller} />
-    {/* // </Container> */}
     </>
   );
 };
