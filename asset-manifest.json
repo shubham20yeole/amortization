@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/amortization/static/css/main.f630e1f8.css",
+    "main.js": "/amortization/static/js/main.f483cd9c.js",
+    "index.html": "/amortization/index.html",
+    "main.f630e1f8.css.map": "/amortization/static/css/main.f630e1f8.css.map",
+    "main.f483cd9c.js.map": "/amortization/static/js/main.f483cd9c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f630e1f8.css",
+    "static/js/main.f483cd9c.js"
+  ]
+}
