@@ -18,8 +18,6 @@ export const App: React.FunctionComponent<AppProps> = () => {
   );
 };
 
-
-
 export const Header: React.FunctionComponent<AppProps> = ({ style }) => {
   return (
     <div style={style}>

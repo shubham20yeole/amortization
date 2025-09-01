@@ -16,14 +16,12 @@ export const InterestGraph: React.FunctionComponent<{ controller: AmortizationCa
   const payments = allPayments?.map(({ payment }) => payment);
   const principals = allPayments?.map(({ principal }) => principal);
   const begins = allPayments?.map(({ begins }) => begins);
-  const breakEvenMonth = allPayments.find(({ principal, interest }) => Math.abs(principal - interest) <= 50)?.begins;
 
   const margin = { right: 24 };
 
   const xLabels = begins.map((date) => moment(new Date(date)).format("yyyy/MM")).sort();
   return (
     <div style={{ width: "700px" }}>
-      {/* <h3>Break even at: {moment(new Date(breakEvenMonth as number)).format("LL")}</h3> */}
       <LineChart
         height={395}
         series={[

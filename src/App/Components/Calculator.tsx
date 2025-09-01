@@ -14,8 +14,6 @@ export interface CalculatorViewProps {
 
 export const Calculator: React.FunctionComponent = () => {
   const [controller, setController] = useState<AmortizationCalculator>(new AmortizationCalculator())
-
-
   const refresh = (loanAmount: number, refinances: RefinanceParams[]) => {
     const newController = new AmortizationCalculator();
     refinances.filter(({ checked }) => checked).forEach(({ rate, begins }) => {
@@ -31,7 +29,6 @@ export const Calculator: React.FunctionComponent = () => {
     </div>
   );
 };
-
 
 export const CalculatorView: React.FunctionComponent<{ controller: AmortizationCalculator, refresh: Refresh }> = ({ controller, refresh }) => {
   return controller && (<>

@@ -1,20 +1,16 @@
 import * as React from "react";
 import { AmortizationCalculator } from "../Controller/AmortizationCalculator";
 import moment from "moment";
-import dayjs, { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
 import { useState } from "react";
 import Switch from '@mui/material/Switch';
-import Fab from '@mui/material/Fab';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import AddIcon from '@mui/icons-material/Add';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import Typography, { TypographyProps } from '@mui/material/Typography';
-import Paper from '@mui/material/Paper';
-import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 export type Refresh = (loanAmount: number, refinances: RefinanceParams[]) => void;
 export interface RefinanceProps {
@@ -29,8 +25,8 @@ export interface RefinanceParams {
   checked?: boolean;
 }
 
-export const Refinance: React.FunctionComponent<RefinanceProps> = ({ controller, refresh }) => {
-  const [loanAmount, setLoanAmount] = useState<number>(920000)
+export const Refinance: React.FunctionComponent<RefinanceProps> = ({ refresh }) => {
+  const [loanAmount, setLoanAmount] = useState<number>(936000)
   const [beginDate, setBeginDate] = useState<number>(new Date("August 1, 2024").getTime())
   const [beginRate, setBeginRate] = useState<number>(6.375)
   const uuid = crypto.randomUUID();
