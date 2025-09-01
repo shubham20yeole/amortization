@@ -38,8 +38,9 @@ export const Refinance: React.FunctionComponent<RefinanceProps> = ({ controller,
 
   const refinance = () => {
     const uuid = crypto.randomUUID();
-    const lastRefinanceDate = refinances.at(-1)?.begins as number;
-    const lastRefinanceRate = refinances.at(-1)?.rate as number;
+    const lastRefinance = refinances[refinances.length - 1];
+    const lastRefinanceDate = lastRefinance?.begins as number;
+    const lastRefinanceRate = lastRefinance?.rate as number;
     const newDate = new Date(lastRefinanceDate);
     newDate.setMonth(newDate.getMonth() + 12);
     setRefinances([...refinances, { rate: lastRefinanceRate - 0.125, begins: newDate.getTime(), uuid, checked: true }])
@@ -51,7 +52,6 @@ export const Refinance: React.FunctionComponent<RefinanceProps> = ({ controller,
 
   React.useEffect(() => {
     onUpdateRefinanceInfo({ uuid, rate: beginRate, begins: beginDate }, true)
-    // refresh(loanAmount, refinances)
   }, [beginDate, beginRate]);
 
   const toggleRefinance = (id: string) => {
@@ -72,7 +72,6 @@ export const Refinance: React.FunctionComponent<RefinanceProps> = ({ controller,
       const newInfo = refinances;
       newInfo[0] = { ...newRefinanceInfo, checked: newInfo[0]?.checked };
       setRefinances([...newInfo]);
-      // refresh(loanAmount, refinances);
       return;
     }
     const newRefinances: RefinanceParams[] = refinances.map(({ rate, begins, uuid, checked }) => {
@@ -127,7 +126,6 @@ export const Refinance: React.FunctionComponent<RefinanceProps> = ({ controller,
         ))}
         <Button size="large" onClick={refinance}>Add Refinance</Button>
       </Box></>
-
   );
 };
 

@@ -5,7 +5,7 @@ import { Summary } from "./Summary";
 import { Refinance, RefinanceParams, Refresh } from "./Refinance";
 import { useState } from "react";
 import { Graph } from "./Graph";
-import Typography from "@mui/material/Typography";
+import Grid from "@mui/material/Grid";
 
 export interface CalculatorViewProps {
   controller: AmortizationCalculator;
@@ -35,12 +35,19 @@ export const Calculator: React.FunctionComponent = () => {
 
 export const CalculatorView: React.FunctionComponent<{ controller: AmortizationCalculator, refresh: Refresh }> = ({ controller, refresh }) => {
   return controller && (<>
-      <Typography variant="h2">Amortization Calculator</Typography>
-      <Refinance controller={controller} refresh={refresh} />
-      <Graph controller={controller} />
-      <Summary summary={controller.getSummary()} />
-      <BreakDown controller={controller} />
-    </>
+    <Grid
+      container spacing={2}
+    >
+      <Grid size={4}>
+        <Summary summary={controller.getSummary()} title="Loan Summary" />
+        <Graph controller={controller} />
+        <Refinance controller={controller} refresh={refresh} />
+      </Grid>
+      <Grid size={8}>
+        <BreakDown controller={controller} />
+      </Grid>
+    </Grid>
+  </>
   );
 };
 

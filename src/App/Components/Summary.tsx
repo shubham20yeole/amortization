@@ -4,16 +4,17 @@ import Typography from "@mui/material/Typography";
 
 interface SummaryProps {
   summary: LoanDetail;
+  title?: string
 }
-export const Summary: React.FunctionComponent<SummaryProps> = ({ summary }) => {
+export const Summary: React.FunctionComponent<SummaryProps> = ({ summary, title }) => {
   const { begins, ends, loan, balance, interest, principal, payment, rate } = summary;
 
 
   let formatter = Intl.NumberFormat('en', { notation: 'compact' });
 
   return (
-    <div>
-      <Typography variant="h4">Term Summary</Typography>
+    <>
+      <Typography variant="h4">{title || "Term Summary"}</Typography>
       <table>
         <tr>
           <th>Begins</th>
@@ -29,13 +30,13 @@ export const Summary: React.FunctionComponent<SummaryProps> = ({ summary }) => {
           <td style={{ textAlign: "right" }}>{new Date(begins).toLocaleDateString()}</td>
           <td style={{ textAlign: "right" }}>{new Date(ends).toLocaleDateString()}</td>
           <td>{formatter.format(Math.trunc(loan))}</td>
-          <td>{balance}</td>
-          <td>{interest}</td>
+          <td>{formatter.format(Math.trunc(balance))}</td>
+          <td>{formatter.format(Math.trunc(interest))}</td>
           <td>{formatter.format(Math.trunc(principal))}</td>
           <td>{formatter.format(Math.trunc(payment))}</td>
           <td>{rate}</td>
         </tr>
       </table>
-    </div>
+    </>
   );
 };

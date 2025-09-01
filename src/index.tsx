@@ -1,6 +1,6 @@
 import React from "react";
-import {createRoot} from "react-dom/client"
-import { App } from "./Components/App";
+import { createRoot } from "react-dom/client"
+import { App } from "./App/Components/App";
 
 // A simple Class component
 class HelloWorld extends React.Component {
@@ -15,4 +15,4 @@ document.body.innerHTML = '<div id="app"></div>'
 // Create a root element for React
 const app = createRoot(document.getElementById("app")!)
 // Render our HelloWorld component
-app.render(<HelloWorld/>)
+app.render(<HelloWorld />)

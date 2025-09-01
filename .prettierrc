@@ -1,0 +1,9 @@
+module.exports = {
+  semi: true, // Add semicolons
+  singleQuote: true, // Use single quotes for strings
+  tabWidth: 2, // Number of spaces per indent
+  trailingComma: 'es5', // Add trailing commas where appropriate
+  printWidth: 100, // Maximum characters per line
+  bracketSpacing: true, // Spaces inside object literals
+  arrowParens: 'avoid', // Omit parens when possible in arrow function arguments
+};

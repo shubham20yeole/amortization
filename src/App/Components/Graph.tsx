@@ -2,18 +2,10 @@ import { LineChart } from "@mui/x-charts";
 import moment from "moment";
 import { AmortizationCalculator } from "../Controller/AmortizationCalculator";
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
 export const Graph: React.FunctionComponent<{ controller: AmortizationCalculator }> = ({ controller }) => {
 
   return <Box sx={{ flexGrow: 1 }}>
-    <Grid container spacing={2}>
-      <Grid size={5}>
-        <InterestGraph controller={controller} />
-      </Grid>
-      <Grid size={6}>
-        <LoanGraph controller={controller} />
-      </Grid>
-    </Grid>
+    <InterestGraph controller={controller} />
   </Box>
 }
 
@@ -30,10 +22,10 @@ export const InterestGraph: React.FunctionComponent<{ controller: AmortizationCa
 
   const xLabels = begins.map((date) => moment(new Date(date)).format("yyyy/MM")).sort();
   return (
-    <div style={{ width: "900px" }}>
+    <div style={{ width: "700px" }}>
       {/* <h3>Break even at: {moment(new Date(breakEvenMonth as number)).format("LL")}</h3> */}
       <LineChart
-        height={300}
+        height={395}
         series={[
           { data: interests, label: 'Interest' },
           { data: principals, label: 'Principal' },
